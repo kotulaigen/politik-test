@@ -1,0 +1,25 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            let prevDate;
+
+            function taxingListener() {
+                let date = new Date().getTime();
+                if(date - prevDate > 400){
+                    console.log(prevDate, date)
+                    // simulation of non critical taxing task
+                    for (let i = 0; i < 9999; i++) {
+                        console.log(i);
+                    }
+                    prevDate = date;
+                    return removeEventListener('mousemove', taxingListener)
+                } else {
+                    prevDate = date;
+                }
+            }
+            document.addEventListener('mousemove', taxingListener);
+        </script>
+    </body>
+</html>
